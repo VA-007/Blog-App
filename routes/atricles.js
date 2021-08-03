@@ -12,14 +12,14 @@ router.get('/edit/:id', async (req, res) => {      // Updating existing article
   res.render('articles/edit', { article: article });
 });
 
-router.get('/:slug', async (req, res) => {
+router.get('/:slug', async (req, res) => {    // Get an article by title(slug implemented -> id) route
   const article = await Article.findOne({ slug: req.params.slug });
 
   if (article == null) res.redirect('/');
   res.render('articles/show', { article: article });
 });
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res) => {  // Cerating a new post and then posting it
   let article = new Article({
     title: req.body.title,
     description: req.body.description,
@@ -48,7 +48,7 @@ router.put('/:id', async (req, res) => {    // PUT route for putting the article
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {     // Delete route for deleting the post
   await Article.findByIdAndDelete(req.params.id);
   res.redirect('/');
 });
