@@ -8,6 +8,7 @@ const methodOverride = require('method-override')
 const app = express(); 
 const port = process.env.PORT;
 
+// Connecting to the MongoDB Database
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
