@@ -6,6 +6,7 @@ const methodOverride = require('method-override')
 
 // Setting up express sever 
 const app = express(); 
+const port = process.env.PORT;
 
 mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
@@ -14,7 +15,6 @@ mongoose.connect(process.env.MONGODB_URL, {
   useFindAndModify: false
 });
 
-const port = process.env.PORT;
 
 // Setting the view engine to ejs (ejs will render our DOM)
 app.set('view engine', 'ejs');
